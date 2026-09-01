@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Receita Fácil</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #fff8f3;
+            color: #333;
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e85d04;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #e85d04;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 10%;
+            background: linear-gradient(135deg, #fff0e5, #ffe0cc);
+            gap: 40px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            color: #d94801;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #e85d04;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #c94d00;
+            transform: translateY(-2px);
+        }
+
+        .hero-img {
+            font-size: 180px;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            padding: 70px 10%;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            font-size: 35px;
+            color: #d94801;
+            margin-bottom: 15px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           APRESENTAÇÃO
+        ========================= */
+
+        .apresentacao {
+            background-color: white;
+        }
+
+        .cards-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card-info {
+            padding: 30px;
+            background-color: #fff8f3;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #f2d6c4;
+        }
+
+        .card-info .icone {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card-info h3 {
+            color: #e85d04;
+            margin-bottom: 12px;
+        }
+
+        .card-info p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+
+        /* =========================
+           FUNCIONALIDADES
+        ========================= */
+
+        .funcionalidades {
+            background-color: #fff8f3;
+        }
+
+        .cards-funcionalidades {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .funcao {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .funcao:hover {
+            transform: translateY(-5px);
+        }
+
+        .funcao span {
+            font-size: 40px;
+        }
+
+        .funcao h3 {
+            margin: 15px 0 10px;
+            color: #e85d04;
+        }
+
+        .funcao p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           RECEITAS
+        ========================= */
+
+        .receitas {
+            background-color: white;
+        }
+
+        .cards-receitas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .receita {
+            background-color: #fff8f3;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #f2d6c4;
+        }
+
+        .imagem-receita {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            background-color: #ffe5d0;
+        }
+
+        .receita-conteudo {
+            padding: 25px;
+        }
+
+        .receita h3 {
+            color: #e85d04;
+            margin-bottom: 10px;
+        }
+
+        .receita p {
+            line-height: 1.5;
+            color: #666;
+        }
+
+        .tempo {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           EQUIPE
+        ========================= */
+
+        .equipe {
+            background-color: #fff8f3;
+        }
+
+        .cards-equipe {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .membro {
+            background-color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background-color: #ffe0cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+        }
+
+        .membro h3 {
+            color: #e85d04;
+            margin-bottom: 5px;
+        }
+
+        .cargo {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .github {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .github:hover {
+            color: #e85d04;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            background-color: #e85d04;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .botao-branco {
+            display: inline-block;
+            background-color: white;
+            color: #e85d04;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CONTATO
+        ========================= */
+
+        .contato {
+            background-color: white;
+        }
+
+        .formulario {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .campo textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .botao-form {
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           TECNOLOGIAS
+        ========================= */
+
+        .tecnologias {
+            text-align: center;
+            background-color: #fff8f3;
+        }
+
+        .lista-tecnologias {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tecnologia {
+            background-color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .cards-info,
+            .cards-funcionalidades,
+            .cards-receitas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards-equipe {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .cards-info,
+            .cards-funcionalidades,
+            .cards-receitas,
+            .cards-equipe {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 6%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         MENU
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            🍴 Receita Fácil
+        </div>
+
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#receitas">Receitas</a></li>
+            <li><a href="#equipe">Equipe</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero" id="inicio">
+
+        <div class="hero-text">
+
+            <h1>Receita Fácil</h1>
+
+            <h2>Receitas simples para todos os momentos</h2>
+
+            <p>
+                Encontre receitas deliciosas, práticas e fáceis de preparar.
+                O Receita Fácil foi criado para ajudar você a escolher
+                o que cozinhar de maneira rápida e simples.
+            </p>
+
+            <a href="#receitas" class="botao">
+                Ver receitas
+            </a>
+
+        </div>
+
+        <div class="hero-img">
+            🍳
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         APRESENTAÇÃO
+    ========================= -->
+
+    <section class="apresentacao">
+
+        <h2 class="titulo-secao">
+            Sobre o Projeto
+        </h2>
+
+        <p class="subtitulo">
+            Uma plataforma criada para tornar a busca por receitas
+            mais rápida, simples e acessível.
+        </p>
+
+
+        <div class="cards-info">
+
+            <div class="card-info">
+
+                <div class="icone">💡</div>
+
+                <h3>Proposta de Valor</h3>
+
+                <p>
+                    Reunir receitas práticas em um único lugar,
+                    facilitando a escolha e o preparo das refeições.
+                </p>
+
+            </div>
+
+
+            <div class="card-info">
+
+                <div class="icone">👥</div>
+
+                <h3>Público-Alvo</h3>
+
+                <p>
+                    Pessoas que gostam de cozinhar, estudantes,
+                    famílias e iniciantes na cozinha.
+                </p>
+
+            </div>
+
+
+            <div class="card-info">
+
+                <div class="icone">⚠️</div>
+
+                <h3>Problema</h3>
+
+                <p>
+                    Muitas pessoas não sabem o que cozinhar ou
+                    encontram dificuldade para localizar receitas
+                    simples e bem organizadas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FUNCIONALIDADES
+    ========================= -->
+
+    <section class="funcionalidades" id="funcionalidades">
+
+        <h2 class="titulo-secao">
+            Funcionalidades
+        </h2>
+
+        <p class="subtitulo">
+            Confira os principais recursos do Receita Fácil.
+        </p>
+
+
+        <div class="cards-funcionalidades">
+
+            <div class="funcao">
+
+                <span>🔍</span>
+
+                <h3>Buscar Receitas</h3>
+
+                <p>
+                    Encontre rapidamente uma receita pelo nome
+                    ou ingrediente.
+                </p>
+
+            </div>
+
+
+            <div class="funcao">
+
+                <span>🍰</span>
+
+                <h3>Categorias</h3>
+
+                <p>
+                    Encontre receitas separadas em categorias
+                    como doces, massas, carnes e bebidas.
+                </p>
+
+            </div>
+
+
+            <div class="funcao">
+
+                <span>⭐</span>
+
+                <h3>Favoritos</h3>
+
+                <p>
+                    Salve suas receitas favoritas para
+                    encontrá-las novamente com facilidade.
+                </p>
+
+            </div>
+
+
+            <div class="funcao">
+
+                <span>📝</span>
+
+                <h3>Modo de Preparo</h3>
+
+                <p>
+                    Veja os ingredientes e o passo a passo
+                    de cada receita.
+                </p>
+
+            </div>
+
+
+            <div class="funcao">
+
+                <span>⏱️</span>
+
+                <h3>Tempo de Preparo</h3>
+
+                <p>
+                    Confira quanto tempo é necessário para
+                    preparar cada receita.
+                </p>
+
+            </div>
+
+
+            <div class="funcao">
+
+                <span>📱</span>
+
+                <h3>Responsivo</h3>
+
+                <p>
+                    Acesse o site pelo computador, tablet
+                    ou celular.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECEITAS
+    ========================= -->
+
+    <section class="receitas" id="receitas">
+
+        <h2 class="titulo-secao">
+            Nossas Receitas
+        </h2>
+
+        <p class="subtitulo">
+            Confira algumas receitas para começar.
+        </p>
+
+
+        <div class="cards-receitas">
+
+
+            <div class="receita">
+
+                <div class="imagem-receita">
+                    🍫
+                </div>
+
+                <div class="receita-conteudo">
+
+                    <h3>Bolo de Chocolate</h3>
+
+                    <p>
+                        Um bolo de chocolate simples,
+                        fofinho e delicioso.
+                    </p>
+
+                    <div class="tempo">
+                        ⏱️ 40 minutos
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="receita">
+
+                <div class="imagem-receita">
+                    🧀
+                </div>
+
+                <div class="receita-conteudo">
+
+                    <h3>Pão de Queijo</h3>
+
+                    <p>
+                        Receita tradicional de pão de queijo
+                        fácil e rápida.
+                    </p>
+
+                    <div class="tempo">
+                        ⏱️ 30 minutos
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="receita">
+
+                <div class="imagem-receita">
+                    🍝
+                </div>
+
+                <div class="receita-conteudo">
+
+                    <h3>Macarrão</h3>
+
+                    <p>
+                        Uma opção rápida e prática para
+                        o almoço ou jantar.
+                    </p>
+
+                    <div class="tempo">
+                        ⏱️ 25 minutos
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EQUIPE
+    ========================= -->
+
+    <section class="equipe" id="equipe">
+
+        <h2 class="titulo-secao">
+            Quem Somos
+        </h2>
+
+        <p class="subtitulo">
+            Conheça a equipe responsável pelo desenvolvimento
+            do projeto Receita Fácil.
+        </p>
+
+
+        <div class="cards-equipe">
+
+
+            <!-- MEMBRO 1 -->
+
+            <div class="membro">
+
+                <div class="avatar">
+                    👨‍💻
+                </div>
+
+                <h3>pedro martins</h3>
+
+                <p class="cargo">
+                    Líder do projeto
+                </p>
+
+                <a href="#" class="github">
+                    💻 GitHub
+                </a>
+
+            </div>
+
+
+            <!-- MEMBRO 2 -->
+
+            <div class="membro">
+
+                <div class="avatar">
+                    👩‍💻
+                </div>
+
+                <h3>danilo vitor</h3>
+
+                <p class="cargo">
+                    Desenvolvedor
+                </p>
+
+                <a href="#" class="github">
+                    💻 GitHub
+                </a>
+
+            </div>
+
+
+            
+
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CALL TO ACTION
+    ========================= -->
+
+    <section class="cta">
+
+        <h2>Gostou do Receita Fácil?</h2>
+
+        <p>
+            Experimente nosso projeto e descubra novas receitas!
+        </p>
+
+        <a href="#receitas" class="botao-branco">
+            🚀 Testar o site
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         CONTATO
+    ========================= -->
+
+    <section class="contato" id="contato">
+
+        <h2 class="titulo-secao">
+            Entre em Contato
+        </h2>
+
+        <p class="subtitulo">
+            Tem alguma sugestão ou dúvida?
+            Envie uma mensagem para nossa equipe.
+        </p>
+
+
+        <form class="formulario">
+
+            <div class="campo">
+
+                <label for="nome">
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="mensagem">
+                    Mensagem
+                </label>
+
+                <textarea
+                    id="mensagem"
+                    placeholder="Digite sua mensagem"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="botao botao-form">
+                Enviar mensagem
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         TECNOLOGIAS
+    ========================= -->
+
+    <section class="tecnologias">
+
+        <h2 class="titulo-secao">
+            Tecnologias Utilizadas
+        </h2>
+
+        <p class="subtitulo">
+            Tecnologias utilizadas no desenvolvimento
+            do projeto.
+        </p>
+
+
+        <div class="lista-tecnologias">
+
+            <div class="tecnologia">
+                🌐 HTML5
+            </div>
+
+            <div class="tecnologia">
+                🎨 CSS3
+            </div>
+
+            <div class="tecnologia">
+                ⚡ JavaScript
+            </div>
+
+            <div class="tecnologia">
+                💻 Git
+            </div>
+
+            <div class="tecnologia">
+                🐙 GitHub
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Receita Fácil
+        </p>
+
+        <p>
+            Projeto acadêmico desenvolvido em equipe.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
